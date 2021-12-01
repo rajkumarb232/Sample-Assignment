@@ -1,0 +1,26 @@
+.card{
+   margin-bottom: 20px;
+   border-radius: 15px;
+   background-color: #f1f0ed;
+}
+
+.img-fluid{
+   border-radius: 50%; 
+   padding: 10px;
+}
+.card .card-title{
+   color: #c72424;
+   text-align: center;
+   padding: 20px;
+   font-size: 20;
+}
+.card .card-description{
+   color: black;
+   font-size: 15px;
+   text-align: center;
+
+}
+.card .card-text{
+   font-size: 14px;
+   border:none;
+}

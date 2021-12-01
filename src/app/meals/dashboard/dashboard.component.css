@@ -1,0 +1,37 @@
+
+.card{
+    margin-bottom: 20px
+}
+h6{
+    text-align: center;
+}
+h1{
+    text-align: center; 
+}
+.header{
+    text-align: center;
+    padding: 20%;
+}
+.form-inline{
+    margin-bottom: 25px;
+}
+.img-body{
+    background-color: #E7E9EB;
+}
+.img-fluid{
+    border-radius: 50%;
+    width:60%;
+    padding: 5%;
+}
+.no-data{
+    color: blue;
+    text-align: center;
+    font-size: 25px;
+    padding: 10%;
+
+}
+.fontstyle{
+    color: blue;
+    font-style: oblique;
+    font-family: "Times New Roman", Times, serif;
+}

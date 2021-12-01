@@ -1,0 +1,58 @@
+
+<div class="img-body">
+    <div class="row">
+        <div class="col">
+            <div class="header fontstyle " (click)="ClickOnBanner(RandomMeal.idMeal)">
+              <h4> <b> {{RandomMeal.strMeal}}</b></h4>
+                <h4>{{RandomMeal.strCategory}}</h4>
+                <button>Click here for details</button>
+            </div>
+        </div>
+        <div class="col">
+            <div (click)="ClickOnBanner(RandomMeal.idMeal)">
+                <img class="img-fluid" src="{{RandomMeal.strMealThumb}}" alt="Responsive image">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<section id="team">
+    <div class="container">
+        <h1 class="section-title fontstyle">
+            <span *ngIf="!Searchresult">Categories</span>
+        <span *ngIf="Searchresult">
+           Showing results for {{searchInput}}
+        </span>
+    </h1>
+        <div class="row">
+            <div class="col">
+                <a href=""><span *ngIf="Searchresult" (click)="getCategories()">Show categories</span></a>
+            </div>
+            <div class="col">
+                <form class="form-inline justify-content-end">
+                    <input class="form-control mr-sm-2" #searchinput type="input" placeholder="Search with name"
+                        aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="button"
+                        (click)="searchwithCategoryName(searchinput.value)">Search</button>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-4 col-md-3 card-display" *ngFor="let category of categoriesList">
+                <div class="card" (click)="!Searchresult ? ClickOnCategory(category.strCategory):ClickOnBanner(category.idMeal)">
+                    <div class="card-body text-center">
+                        <p><img class=" img-fluid" src="{{category.strCategoryThumb}}" alt="card image"></p>
+                        <h4 class="card-title">
+                            <span *ngIf="!Searchresult">{{category.strCategory}}</span>
+                            <span *ngIf="Searchresult">{{category.strMeal}}</span>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="no-data" *ngIf=" Searchresult && !categoriesList"> No Results Found
+        </div>
+    </div>
+</section>

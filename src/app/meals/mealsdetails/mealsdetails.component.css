@@ -1,0 +1,32 @@
+.card{
+    top:50px
+}
+.title{
+    color: red;
+}
+.hide {
+    line-height: 18px;
+    height: 65px;
+    overflow: hidden;
+    text-align: justify;
+
+  }
+  
+  .show {
+    overflow: visible;
+    height: auto;
+    text-align: justify;
+
+  }
+
+  .card-body{
+    text-align: center;
+    font-family: serif;
+    font-weight: 600;
+  }
+  h6{
+    padding: 13px;
+  }
+  .card-text{
+    padding: 10px;
+  }
