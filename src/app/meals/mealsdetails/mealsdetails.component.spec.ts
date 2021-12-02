@@ -31,7 +31,7 @@ describe('MealsdetailsComponent', () => {
   });
 
 
-  it('Testing getMealsDetails function', () => {
+  it('It should call getMealsDetails function when ngOnInit loads', () => {
     spyOn(component, 'getMealsDetails').and.callThrough();
     component.getMealsDetails('searchvalue');
     expect(component.getMealsDetails).toHaveBeenCalledWith('searchvalue');

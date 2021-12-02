@@ -5,13 +5,15 @@ import { MealsRoutingModule } from './meals-routing.module';
 import { RecipesComponent } from './recipes/recipes.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MealsdetailsComponent } from './mealsdetails/mealsdetails.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 
 @NgModule({
   declarations: [
     RecipesComponent,
     DashboardComponent,
-    MealsdetailsComponent
+    MealsdetailsComponent,
+    PagenotfoundComponent
   ],
   imports: [
     CommonModule,

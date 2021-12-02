@@ -39,6 +39,7 @@ export class DashboardComponent implements OnInit {
     this.categoriesList = responceData.meals;
   }
 
+//  this function is for maping meals images into categoriesList array
   mapcategoriesListData() {
     this.categoriesList.map(function (ele: any) {
       return ele.strCategoryThumb = ele.strMealThumb;
