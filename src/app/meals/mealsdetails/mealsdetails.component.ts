@@ -10,7 +10,7 @@ import { Router,ActivatedRoute } from '@angular/router';
 })
 export class MealsdetailsComponent implements OnInit {
 
-  constructor(public RecipesService:RecipesService, private route: ActivatedRoute,) { }
+  constructor(public RecipesService:RecipesService, private route: ActivatedRoute,public router:Router) { }
 
   SearchedMeal:any=[];
   show:boolean=false;
@@ -25,7 +25,14 @@ export class MealsdetailsComponent implements OnInit {
   getMealsDetails(searchValue:any){
     this.RecipesService.getMealsDetailsbyId(searchValue).subscribe((responceData: any) => {
       this.SearchedMeal = responceData.meals[0];
-     });
+     }, 
+     (error) => {
+       this.navigateToPagenotFoundpage();
+    });
+  }
+
+  navigateToPagenotFoundpage(){
+    this.router.navigate(['./meals/404'])
   }
 
 }
