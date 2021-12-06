@@ -29,6 +29,7 @@ export class DashboardComponent implements OnInit {
 
   searchwithCategoryName(searchValue: any) {
     this.Searchresult = true;
+    this.searchInput = searchValue;
     this.RecipesService.SearchMeals(searchValue).subscribe((responceData: any) => {
       this.responsehandler(responceData)
       this.mapcategoriesListData();
