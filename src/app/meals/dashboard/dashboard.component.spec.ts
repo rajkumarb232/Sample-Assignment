@@ -42,31 +42,45 @@ describe('DashboardComponent', () => {
   it('It  should call searchwithCategoryName function when click on search button', () => {
     spyOn(component, 'searchwithCategoryName').and.callThrough();
     component.searchwithCategoryName('ratatouille');
-    expect(component.searchwithCategoryName).toHaveBeenCalled();
+    expect(component.searchwithCategoryName).toHaveBeenCalledWith('ratatouille');
     spyOn(component, 'mapcategoriesListData').and.callThrough();
     component.mapcategoriesListData();
     expect(component.mapcategoriesListData).toHaveBeenCalled();
   });
 
+  it('It should handle searchwithCategoryNames function error response',()=>{
+    spyOn(recipesService,'SearchMeals').and.returnValue(throwError('error'));
+    expect(component.searchwithCategoryName).toThrowError();
+});
 
-  it('responsehandler function should call after getting resopnse from searchwithCategoryName method ', () => {
+  it('It should call responsehandler function  after getting resopnse from searchwithCategoryName method ', () => {
     spyOn(component, 'responsehandler').and.callThrough();
     component.responsehandler('');
     expect(component.responsehandler).toHaveBeenCalled();
   });
   
-  it('getRandomMeal function should call From ngOnInit ', () => {
+  it('It should call getRandomMeal function should call From ngOnInit ', () => {
     spyOn(component, 'getRandomMeal').and.callThrough();
     component.getRandomMeal();
     expect(component.getRandomMeal).toHaveBeenCalled();
-    expect(component.RandomMeal).toEqual([]);
+    expect(component.RandomMeal.length).toEqual(0);
   });
+
+  it('It should handle getRandomMeal function error response',()=>{
+    spyOn(recipesService,'getRandomMeal').and.returnValue(throwError('error'));
+    expect(component.RandomMeal).toEqual([]);
+});
 
   it('It Should call getCategories from ngOnInit ', () => {
     spyOn(component, 'getCategories').and.callThrough();
     component.getCategories();
     expect(component.getCategories).toHaveBeenCalled();
     expect(component.categoriesList.length).toEqual(0);
+  });
+
+  it('It should handle getCategories function error response',()=>{
+      spyOn(recipesService,'getAllCategories').and.returnValue(throwError('error'));
+      expect(component.categoriesList).toEqual([]);
   });
 
   it('It Should call ClickOnCategory and Navigate to Recipes page when click on category', waitForAsync(inject([Router], (router:any) => {

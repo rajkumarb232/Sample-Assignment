@@ -36,7 +36,14 @@ describe('RecipesComponent', () => {
     spyOn(component, 'getSubCategories').and.callThrough();
     component.getSubCategories('id');
     expect(component.getSubCategories).toHaveBeenCalledWith('id');
+    expect(component.subCategoriesList).toEqual([])
   });
+
+
+  it('It should handle getSubategories function error response',()=>{
+    spyOn(recipesService,'getSubategoriesById').and.returnValue(throwError('error'));
+    expect(component.getSubCategories).toThrowError();
+});
 
   
   it('It should call ClickOnsubcategory function and navigate to Mealsdetails page when click on card', waitForAsync(inject([Router], (router:any) => {

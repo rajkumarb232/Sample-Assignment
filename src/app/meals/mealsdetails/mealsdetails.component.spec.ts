@@ -4,6 +4,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { RecipesService } from 'src/app/services/recipes.service';
 import { MealsdetailsComponent } from './mealsdetails.component';
 import { Router } from '@angular/router';
+import { throwError } from 'rxjs';
 
 
 describe('MealsdetailsComponent', () => {
@@ -38,10 +39,17 @@ describe('MealsdetailsComponent', () => {
     expect(component.getMealsDetails).toHaveBeenCalledWith('searchvalue');
   });
 
+  it('It should handle getMealsDetails function error response',()=>{
+    spyOn(recipesService,'getMealsDetailsbyId').and.returnValue(throwError('error'));
+    expect(component.getMealsDetails).toThrowError();
+});
+
   it('It should call navigateToPagenotFoundpage function when getMealsDetails fails', waitForAsync(inject([Router], (router:any) => {
     spyOn(router, 'navigate').and.stub();
     component.navigateToPagenotFoundpage();
     expect(router.navigate).toHaveBeenCalledWith(['./meals/404']);
   })));
+
+
 
 })
